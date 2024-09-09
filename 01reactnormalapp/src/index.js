@@ -5,7 +5,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
+  <React.StrictMode> //used for optimization, without this also, it will work
+    <App /> //custom tag, jsx
   </React.StrictMode>
 );
