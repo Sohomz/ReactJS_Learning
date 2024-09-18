@@ -16,8 +16,23 @@ function App() {
 
 
   const increamentCount=()=>{
-    count=count+1;
-    setCount(count);
+    //setCount(count+1); // for interview
+
+    //if interviewer update the code like this, what will happen, by eye, you can say if the value is 15, then it will be adding 6 times that means 21.
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+    //But this is not the case. Because when fiber going to take this things, he will take these as batch and then he will understand ohh all are same, then output will be 15+1=16 only. But if we want to acheive that then we need to use prevCounter or any varible name doesn't matter
+
+    setCount(prevCounter=>prevCounter+1);
+    setCount(prevCounter=>prevCounter+1);
+    setCount(prevCounter=>prevCounter+1);
+    setCount(prevCounter=>prevCounter+1);
+    setCount(prevCounter=>prevCounter+1);
+    setCount(prevCounter=>prevCounter+1); //now 15+7=23
+
   }
 
   const decreamentCount=()=>{
@@ -28,7 +43,7 @@ function App() {
   return (
     <>
       <h1>UseState using Hooks</h1>
-      <button style={{backgroundColor:"blue"}} onClick={increamentCount}>Add {count}</button> 
+      <button style={{backgroundColor:"blue",color:"#fff"}} onClick={increamentCount}>Add {count}</button> 
       <br></br>
       <button onClick={decreamentCount}>Reduce {count}</button>
     </>
