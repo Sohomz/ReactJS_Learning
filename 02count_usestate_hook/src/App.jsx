@@ -31,7 +31,7 @@ function App() {
     setCount(prevCounter=>prevCounter+1);
     setCount(prevCounter=>prevCounter+1);
     setCount(prevCounter=>prevCounter+1);
-    setCount(prevCounter=>prevCounter+1); //now 15+7=23
+    setCount(prevCounter=>prevCounter+1); //now 15+7=23, why because setCount is actually a callback function, it will do count=count+1 then prevcounter+1
 
   }
 
