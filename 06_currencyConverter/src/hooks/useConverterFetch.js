@@ -12,7 +12,7 @@ function useConverterFetch(amnt, fromCur, toCur) {
     try {
       const res = await fetch(`https://api.frankfurter.app/latest?amount=${amnt}&from=${fromCur}&to=${toCur}`);
       const data = await res.json();
-      setData(data.rates[toCur]);
+      setData(Math.floor((data.rates[toCur])*1000)/1000);
     } catch (err) {
       console.error("Error fetching conversion data:", err);
     }

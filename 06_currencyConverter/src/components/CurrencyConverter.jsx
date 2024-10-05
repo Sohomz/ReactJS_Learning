@@ -10,7 +10,6 @@ function CurrencyConverter() {
   const [amount,setAmount]=useState(1);
   const [fromCurrency, setfromCurrency] = useState("AUD")
   const [toCurrency, settoCurrency] = useState("AUD")
-  const [convertedAmount,setConvertedAmount]=useState(1)
   const {data:amntCurData}=useConverterFetch(amount, fromCurrency, toCurrency);// returned data stored into "data" variable and then assigning the value into amntCurData
   const inputRef = useRef(null); // Creating a ref for the input element
   const fCur=useRef(null);
@@ -18,14 +17,6 @@ function CurrencyConverter() {
 
   //console.log(currencies);
 
-  //I'm using this useEffect to achieve whenevr I change the dropdown, the value will change
-  useEffect(() => {
-    if (fromCurrency !== toCurrency || amount>0) {
-      setConvertedAmount(amntCurData);
-    } else {
-      setConvertedAmount(amount);
-    }
-  }, [amntCurData, fromCurrency, toCurrency, amount]);
   
   const converCurrency = () => {
     handleAmountChange
@@ -48,29 +39,37 @@ function CurrencyConverter() {
     console.log(`amount is: ${amount}`);
   };
 
-  
+  const swapCur=()=>{
+    const f=fCur.current.value;
+    const t=tCur.current.value;
+    setfromCurrency(t);
+    settoCurrency(f);
+  }
+
   return (
-    <div className='max-w-xl mx-auto my-10 p-5 bg-white rounded-lg shadow-md'>
+    <div className='max-w-xl mx-auto my-10 p-5 bg-white rounded-lg shadow-md w-80 overflow-hiddens'>
 
       <h2 className="mb-5 text-2xl font-semibold text-gray-700">Currency Converter</h2>
 
-      <div>
-        <Dropdown currencys={currencies} ref={fCur} title="From" onChange={converCurrency}></Dropdown>
-        <Dropdown currencys={currencies} ref={tCur} title='To' onChange={converCurrency}></Dropdown>
+      <div className="flex justify-between">
+        <Dropdown currencys={currencies} ref={fCur} title="From" onChange={converCurrency} value={fromCurrency}></Dropdown>
+        <img src="..\assets\two-way.png" className="flex size-8 mt-7" onClick={swapCur}></img>
+        <Dropdown currencys={currencies} ref={tCur} title='To' onChange={converCurrency} value={toCurrency}></Dropdown>
       </div>
 
-      <div className="block text-sm font-medium text-gray-700">
-        <label htmlFor="amount">Amount</label>
+      <div className="flex flex-col text-sm font-medium text-gray-700 mt-2">
+        <label htmlFor="amount" className="flex mt-3">Amount</label>
         <input 
-            type="number" ref={inputRef} min={1}
+            type="number" ref={inputRef} min={1} placeholder={amount}
 
             onChange={handleAmountChange}
-            className='w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-800'>
+            className='w-full p-2 border mt-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-800'>
 
         </input>
       </div>
-      <div className='m-3 justify-end flex flex-col'>
-        <div className="m-4 text-lg font-medium text-right text-green-700 flex">Converted amount is: {amntCurData}</div>
+      <div className='m-2 justify-end flex flex-col'>
+        <div className="text-lg font-medium text-center text-blue-900 flex">Converted amount</div><br></br>
+        <div className="text-lg font-medium text-center text-green-700 overflow-hidden">{amntCurData}</div>
       </div>
     </div>
   )
