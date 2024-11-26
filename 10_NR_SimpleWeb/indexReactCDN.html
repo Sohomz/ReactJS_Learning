@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="indexReactCDN.css"/>
 </head>
 <body>
     <div id="root">
@@ -13,7 +14,7 @@
 
     <script>
         //what to render?
-        const heading=React.createElement("h1",{},"Hello world from React using CDN")
+        const heading=React.createElement("h1",{id:"idForh1",xyz:"abc"},"Hello world from React using CDN")
 
         //Where to render
         const r=ReactDOM.createRoot(document.getElementById("root"));
