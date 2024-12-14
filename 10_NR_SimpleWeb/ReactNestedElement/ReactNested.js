@@ -21,3 +21,12 @@ import ReactDOM from "react-dom";
 // //Now render inside div that is to say root id
 // r.render(heading);
 
+const Jsxheader = (
+  <h1>
+    {" "}
+    this is HTML like syntax 🚀
+    <a>This is inside something put a bracket</a>
+  </h1>
+);
+const r = ReactDOM.createRoot(document.getElementById("root"));
+r.render(Jsxheader);
