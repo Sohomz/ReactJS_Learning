@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 // //what to render?
 // const heading=React.createElement("div",{id:"parent",xyz:"abc"},
@@ -21,6 +21,12 @@ import ReactDOM from "react-dom";
 // //Now render inside div that is to say root id
 // r.render(heading);
 
+// //React Functional component 1
+// const HeaderComponent1 = function () {
+//   return <h1>This is a functional component 1</h1>;
+// };
+
+//React element 1
 const Jsxheader = (
   <h1>
     {" "}
@@ -28,5 +34,21 @@ const Jsxheader = (
     <a>This is inside something put a bracket</a>
   </h1>
 );
+
+//React element 2
+const Jsxheader2 = <div>{Jsxheader}</div>;
+
+const num = 1000;
+
+//React Functional component 2
+const HeaderComponent2 = () => (
+  <div>
+    {num}
+    {Jsxheader}
+    <h3>{1000 + 200}</h3>
+    <h2>This is a functional component 2</h2>
+  </div>
+);
+
 const r = ReactDOM.createRoot(document.getElementById("root"));
-r.render(Jsxheader);
+r.render(<HeaderComponent2 />);
