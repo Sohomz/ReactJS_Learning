@@ -1,0 +1,29 @@
+{
+  "name": "11_nr_mock_web",
+  "version": "1.0.0",
+  "description": "this isto create a mock web app using demo structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "keywords": [
+    "mock",
+    "web",
+    "app",
+    "react"
+  ],
+  "author": "Sohom Das",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "parcel": "^2.13.3",
+    "postcss": "^8.4.49",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
+  }
+}
