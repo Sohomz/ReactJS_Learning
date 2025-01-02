@@ -32,7 +32,7 @@ footer {
 
 .res-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-top: 180px; /* Adjust based on header height */
   padding-bottom: 70px; /* Adjust based on footer height */

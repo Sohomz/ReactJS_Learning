@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import burgerLogo from "./burger.png";
 
 const resturantList = {
   restaurants: [
@@ -698,6 +697,7 @@ const resturantList = {
     },
   ],
 };
+
 const Header = () => {
   return (
     <div className="flex fixed items-center h-20 p-4 mb-10 bg-gray-800 w-full top-0 z-20">
@@ -723,17 +723,18 @@ const HeaderImg = {
 };
 
 const Body = () => {
-  const jsonData = resturantList.restaurants[0].info;
   return (
     <div>
       <div className="res-container">
         <SearchBox />
-        <Card passData={jsonData} />
+        {resturantList.restaurants.map((i) => (
+          <Card passData={i.info} key={i.info.id} />
+        ))}
       </div>
     </div>
   );
 };
-// TODO: Add more cards dynamically inside Body component
+// TODO: Fetch data from API directly and pass it to the Card component
 
 const Footer = () => {
   return (
@@ -971,25 +972,27 @@ const SearchBox = () => {
 };
 
 const Card = (props) => {
+  const { name, cuisines, cloudinaryImageId, costForTwo } = props.passData;
+  const { deliveryTime } = props.passData.sla;
   return (
-    <div className="card-items max-w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-gray-300">
+    <div className="card-items w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-gray-300">
       <a href="#">
         <img
           className="p-6 rounded-t-lg h-64 w-full"
-          src={burgerLogo}
-          alt="burger image"
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+          alt="food image"
         />
       </a>
       <div className="px-5 pb-5">
         <a href="#">
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {props.passData.cuisines}
-          </h5>
+          <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            {name}
+          </p>
         </a>
         <a href="#">
-          <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {props.passData.name}
-          </p>
+          <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
+            {cuisines.join(", ")}
+          </h5>
         </a>
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -1043,12 +1046,12 @@ const Card = (props) => {
             5.0
           </span>
           <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
-            {props.passData.sla.deliveryTime} mins
+            {deliveryTime} mins
           </span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-gray-900 dark:text-white">
-            {props.passData.costForTwo}
+            {costForTwo}
           </span>
           <a
             href="#"
