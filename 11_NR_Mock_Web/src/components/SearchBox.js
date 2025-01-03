@@ -1,4 +1,7 @@
-const SearchBox = () => {
+import FilterBox from "./FilterBox";
+
+const SearchBox = ({ listToUpdate, setListToUpdate }) => {
+  //I have to pass it because searchBox has the filterBox component
   return (
     <div className="search-box">
       <form className="max-w-screen-md mx-auto">
@@ -32,6 +35,10 @@ const SearchBox = () => {
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Mockups, Logos..."
             required
+          />
+          <FilterBox
+            listToUpdate={listToUpdate}
+            setListToUpdate={setListToUpdate}
           />
           <button
             type="submit"
