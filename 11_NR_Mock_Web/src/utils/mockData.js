@@ -11,7 +11,7 @@ const resturantList = {
         cuisines: ["Desserts"],
         avgRating: 4.6,
         parentId: "8190",
-        avgRatingString: "2",
+        avgRatingString: "4.6",
         totalRatingsString: "873",
         sla: {
           deliveryTime: 19,

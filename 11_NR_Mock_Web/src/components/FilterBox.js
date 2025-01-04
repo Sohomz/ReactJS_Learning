@@ -14,5 +14,5 @@ const FilterBox = ({ listToUpdate, setListToUpdate }) => {
     </button>
   );
 };
-
+// TODO: Add more filters like sorting by delivery time, cost for two, etc.
 export default FilterBox;
