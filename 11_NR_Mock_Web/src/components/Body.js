@@ -16,6 +16,7 @@ const Body = () => {
     const jsonConverted = await fetchedAPI.json();
     console.log(
       jsonConverted.data.cards[2].card.card.gridElements.infoWithStyle
+        .restaurants
     );
   };
 
