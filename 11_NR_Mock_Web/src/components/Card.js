@@ -1,8 +1,14 @@
 import images from "../utils/contants";
 
 const Card = (props) => {
-  const { name, cuisines, cloudinaryImageId, costForTwo, avgRatingString } =
-    props.passData;
+  const {
+    key,
+    name,
+    cuisines,
+    cloudinaryImageId,
+    costForTwo,
+    avgRatingString,
+  } = props.passData;
   const { deliveryTime } = props.passData.sla;
 
   const starsArray = [1, 2, 3, 4, 5];
@@ -36,7 +42,7 @@ const Card = (props) => {
             {starsArray.slice(0, fullStar).map((index) => {
               return (
                 <svg
-                  key={index}
+                  key={`fullStar-${index}`}
                   className="w-4 h-4 text-yellow-300"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,9 +54,10 @@ const Card = (props) => {
               );
             })}
             {/* Half Star Icon */}
-            {starsArray.slice(0, halfStar).map(() => {
+            {starsArray.slice(0, halfStar).map((index) => {
               return (
                 <svg
+                  key={`halfStar-${index}`}
                   className="w-4 h-4 text-gray-200 dark:text-gray-600"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,9 +91,10 @@ const Card = (props) => {
               );
             })}
             {/* Null Star Icon */}
-            {starsArray.slice(0, nullStar).map(() => {
+            {starsArray.slice(0, nullStar).map((index) => {
               return (
                 <svg
+                  key={`nullStar-${index}`}
                   className="w-4 h-4 text-gray-200 dark:text-gray-600"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,24 @@
 import Card from "./Card.js";
 import SearchBox from "./SearchBox.js";
 import resturantList from "../utils/mockData.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Body = () => {
   const [listToUpdate, setListToUpdate] = useState(resturantList.restaurants); // this is to update the list of restaurants
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const fetchedAPI = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.867114&lng=88.3674381&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const jsonConverted = await fetchedAPI.json();
+    console.log(
+      jsonConverted.data.cards[2].card.card.gridElements.infoWithStyle
+    );
+  };
+
   return (
     <div>
       <div className="res-container">
