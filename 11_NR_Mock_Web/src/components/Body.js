@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer.js";
 import resturantList from "../utils/mockData.js";
 
 const Body = () => {
-  const [listToUpdate, setListToUpdate] = useState(resturantList.restaurants); // this is to update the list of restaurants
+  const [listToUpdate, setListToUpdate] = useState([]); // this is to update the list of restaurants
   const [error, setError] = useState(false); // this is to handle the error state
 
   useEffect(() => {
@@ -19,11 +19,12 @@ const Body = () => {
       );
       const jsonConverted = await fetchedAPI.json();
       const dataOfRestuarant =
-        jsonConverted.data.cards[2].card.card.gridElements.infoWithStyle
+        jsonConverted.data.cards[1].card.card.gridElements.infoWithStyle
           .restaurants;
-      console.log(dataOfRestuarant);
+      setListToUpdate(dataOfRestuarant);
     } catch (error) {
       setError(true);
+      console.log(error);
     }
   };
 
