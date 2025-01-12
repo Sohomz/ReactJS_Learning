@@ -15,6 +15,9 @@ body,
   height: 100%;
 }
 
+.body-wrapper {
+  margin-top: 200px;
+}
 header {
   position: fixed;
   top: 0;
@@ -34,9 +37,20 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin-top: 180px; /* Adjust based on header height */
+
   padding-bottom: 70px; /* Adjust based on footer height */
   margin-left: 40px;
+  position: relative;
+}
+
+.shimmer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  padding-bottom: 70px; /* Adjust based on footer height */
+  margin-left: 40px;
+  position: relative;
 }
 
 .search-box {
