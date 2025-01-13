@@ -63,7 +63,7 @@ const SearchBox = ({ listToUpdate, setListToUpdate }) => {
                   setListToUpdate(filteredSearchValue);
                 }
               } catch (e) {
-                // TODO: Add a try-catch block
+                // TODO: not only res name, try to make more search on foods, time, price, etc.
                 setError(true);
                 console.log(e);
                 <h1>No resturant found..... Refresh the page</h1>;
