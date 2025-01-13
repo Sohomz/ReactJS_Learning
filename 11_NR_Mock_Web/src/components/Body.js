@@ -30,20 +30,21 @@ const Body = () => {
 
   return (
     <div>
-      <SearchBox
-        listToUpdate={listToUpdate}
-        setListToUpdate={setListToUpdate}
-      />
-
       {listToUpdate.length === 0 || error ? (
         <div>
           <Shimmer />
         </div>
       ) : (
-        <div className="res-container">
-          {listToUpdate.map((i) => (
-            <Card passData={i.info} key={i.info.id} />
-          ))}
+        <div>
+          <SearchBox
+            listToUpdate={listToUpdate}
+            setListToUpdate={setListToUpdate}
+          />
+          <div className="res-container">
+            {listToUpdate.map((i) => (
+              <Card passData={i.info} key={i.info.id} />
+            ))}
+          </div>
         </div>
       )}
     </div>

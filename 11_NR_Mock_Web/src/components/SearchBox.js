@@ -1,7 +1,10 @@
 import FilterBox from "./FilterBox";
+import { useState } from "react";
 
 const SearchBox = ({ listToUpdate, setListToUpdate }) => {
   //I have to pass it because searchBox has the filterBox component
+  const [searchText, setSearchText] = useState("");
+  const [error, setError] = useState(false);
   return (
     <div className="search-box">
       <form className="max-w-screen-md mx-auto">
@@ -32,20 +35,42 @@ const SearchBox = ({ listToUpdate, setListToUpdate }) => {
           <input
             type="search"
             id="default-search"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }} // Add the onChange event
             className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search Mockups, Logos..."
+            placeholder="Search for foods, restrants, etc."
             required
           />
           <FilterBox
             listToUpdate={listToUpdate}
             setListToUpdate={setListToUpdate}
           />
-          <button
-            type="submit"
+          <input
+            type="button"
+            value={"Search"}
+            onClick={() => {
+              try {
+                const filteredSearchValue = listToUpdate.filter((res) => {
+                  return res.info.name
+                    .toLowerCase()
+                    .includes(searchText.trim().toLowerCase());
+                });
+                if (filteredSearchValue.length === 0) {
+                  throw new Error("No resturant found..... Refresh the page");
+                } else {
+                  setListToUpdate(filteredSearchValue);
+                }
+              } catch (e) {
+                // TODO: Add a try-catch block
+                setError(true);
+                console.log(e);
+                <h1>No resturant found..... Refresh the page</h1>;
+              }
+            }}
             className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Search
-          </button>
+          ></input>
         </div>
       </form>
     </div>
