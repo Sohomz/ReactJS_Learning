@@ -1,10 +1,17 @@
 import FilterBox from "./FilterBox";
 import { useState } from "react";
+import Popup from "./Popup";
 
-const SearchBox = ({ listToUpdate, setListToUpdate }) => {
+const SearchBox = ({
+  listToUpdate,
+  setListToUpdate,
+  filteredResturant,
+  setFilteredResturant,
+}) => {
   //I have to pass it because searchBox has the filterBox component
   const [searchText, setSearchText] = useState("");
   const [error, setError] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <div className="search-box">
       <form className="max-w-screen-md mx-auto">
@@ -46,6 +53,8 @@ const SearchBox = ({ listToUpdate, setListToUpdate }) => {
           <FilterBox
             listToUpdate={listToUpdate}
             setListToUpdate={setListToUpdate}
+            filteredResturant={filteredResturant}
+            setFilteredResturant={setFilteredResturant}
           />
           <input
             type="button"
@@ -53,26 +62,37 @@ const SearchBox = ({ listToUpdate, setListToUpdate }) => {
             onClick={() => {
               try {
                 const filteredSearchValue = listToUpdate.filter((res) => {
-                  return res.info.name
+                  const resName = res.info.name
                     .toLowerCase()
                     .includes(searchText.trim().toLowerCase());
+                  const cuisineString = res.info.cuisines.join(" ");
+                  const cuisineSearch = cuisineString
+                    .toLowerCase()
+                    .includes(searchText.trim().toLowerCase());
+                  console.log(cuisineSearch);
+                  return resName || cuisineSearch;
                 });
                 if (filteredSearchValue.length === 0) {
                   throw new Error("No resturant found..... Refresh the page");
                 } else {
-                  setListToUpdate(filteredSearchValue);
+                  setFilteredResturant(filteredSearchValue);
                 }
               } catch (e) {
-                // TODO: not only res name, try to make more search on foods, time, price, etc.
                 setError(true);
+                setShowPopup(true);
                 console.log(e);
-                <h1>No resturant found..... Refresh the page</h1>;
+
+                setTimeout(() => {
+                  setShowPopup(false);
+                  setError(false);
+                }, 1000);
               }
             }}
             className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           ></input>
         </div>
       </form>
+      <Popup message="No restaurant found." showPopup={showPopup} />
     </div>
   );
 };

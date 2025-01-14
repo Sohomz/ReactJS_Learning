@@ -7,7 +7,7 @@ import resturantList from "../utils/mockData.js";
 const Body = () => {
   const [listToUpdate, setListToUpdate] = useState([]); // this is to update the list of restaurants
   const [error, setError] = useState(false); // this is to handle the error state
-
+  const [filteredResturant, setFilteredResturant] = useState([]); // this is to fix search bug if do 2ndor 3rd or more than that
   useEffect(() => {
     fetchData();
   }, []);
@@ -22,6 +22,7 @@ const Body = () => {
         jsonConverted.data.cards[1].card.card.gridElements.infoWithStyle
           .restaurants;
       setListToUpdate(dataOfRestuarant);
+      setFilteredResturant(dataOfRestuarant);
     } catch (error) {
       setError(true);
       console.log(error);
@@ -39,9 +40,11 @@ const Body = () => {
           <SearchBox
             listToUpdate={listToUpdate}
             setListToUpdate={setListToUpdate}
+            filteredResturant={filteredResturant}
+            setFilteredResturant={setFilteredResturant}
           />
           <div className="res-container">
-            {listToUpdate.map((i) => (
+            {filteredResturant.map((i) => (
               <Card passData={i.info} key={i.info.id} />
             ))}
           </div>
