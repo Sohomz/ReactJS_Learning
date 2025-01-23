@@ -1,6 +1,6 @@
 import { useState } from "react";
 import images from "../utils/contants";
-
+import { Link } from "react-router";
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState(false);
   return (
@@ -12,9 +12,13 @@ const Header = () => {
         style={{ width: "70px", height: "70px" }}
       />
       <ul className="nav flex ml-4 mr-4 space-x-10 justify-end  items-center w-full cursor-pointer text-white">
-        <li>Home</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>Menu</li>
-        <li>About Us</li>
+        <li>
+          <Link to="/About">About Us</Link>
+        </li>
         <li>Contact</li>
         <input
           type="button"

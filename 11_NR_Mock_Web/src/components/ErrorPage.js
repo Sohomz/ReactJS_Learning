@@ -6,7 +6,6 @@ function ErrorPage() {
     <div>
       ErrorPage
       <h1>OOPs!!!!! </h1>
-      <p>{console.log(err)}</p>
       <h2>{err.status}</h2>
     </div>
   );

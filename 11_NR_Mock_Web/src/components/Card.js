@@ -13,7 +13,7 @@ const Card = (props) => {
 
   const starsArray = [1, 2, 3, 4, 5];
   const fullStar = Math.floor(avgRatingString);
-  const halfStar = Number(avgRatingString) - Number(fullStar) > 0.4 ? 1 : 0;
+  const halfStar = Number(avgRatingString) - Number(fullStar) >= 0.5 ? 1 : 0;
   const nullStar = images.TOTAL_STARS - (fullStar + halfStar);
 
   return (
