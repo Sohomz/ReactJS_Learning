@@ -44,7 +44,7 @@ const appRouter = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "/Resturants/:resId",
+        path: "/resturants/:resId",
         element: (
           <div className="body-wrapper ml-10">
             <ResturantMenu />

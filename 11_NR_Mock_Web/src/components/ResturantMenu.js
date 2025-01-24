@@ -1,37 +1,64 @@
 import { useEffect, useState } from "react";
+import Shimmer from "../components/Shimmer";
+import { useParams } from "react-router-dom";
 
 const ResturantMenu = () => {
-  const [individualResturant, setIndividualResturant] = useState({});
+  const [restaurantData, setRestaurantData] = useState(null);
+  const { resId } = useParams();
+  console.log(resId);
 
   useEffect(() => {
-    fetchMenudata();
+    fetchMenuData();
   }, []);
 
-  const fetchMenudata = async () => {
+  const fetchMenuData = async () => {
     try {
-      const fetchedAPI = await fetch(
-        "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5743545&lng=88.3628734&restaurantId=651011&catalog_qa=undefined&submitAction=ENTER"
+      const response = await fetch(
+        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5743545&lng=88.3628734&restaurantId=${resId}`
       );
-      const jsonConverter = await fetchedAPI.json();
-      const dataofMenu =
-        jsonConverter.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1]
-          .card.card.itemCards[3].card.info;
-      setIndividualResturant(dataofMenu);
-      console.log(dataofMenu);
-    } catch (err) {
-      console.log(err);
+      const jsonData = await response.json();
+      setRestaurantData(jsonData.data);
+    } catch (error) {
+      console.error("Error fetching menu data:", error);
     }
   };
+
+  const getCardData = (index) => restaurantData?.cards?.[index]?.card?.card;
+  const restaurantInfo = getCardData(0)?.text;
+  const rating = getCardData(2)?.info?.avgRating;
+  const costForTwo = getCardData(2)?.info?.costForTwoMessage;
+  const areaName = getCardData(2)?.info?.areaName;
+  const minDeliveryTime = getCardData(2)?.info?.sla?.minDeliveryTime;
+  const maxDeliveryTime = getCardData(2)?.info?.sla?.maxDeliveryTime;
+  const menuItems =
+    restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[8]
+      ?.card?.card?.itemCards;
+
+  if (!restaurantData) {
+    return <Shimmer />;
+  }
+
   return (
     <div>
-      <h1>Resturant Menu: {individualResturant.name}</h1>
-      <p>Menu items will be displayed here</p>
+      <h1>Restaurant Name: {restaurantInfo}</h1>
+      <h1>
+        Rating: {rating}
+        Cost for two: {costForTwo}
+      </h1>
+      <h1>Outlet: {areaName}</h1>
+      <h1>
+        Delivery Time: {minDeliveryTime} - {maxDeliveryTime} mins
+      </h1>
+      <p>Menu items will be displayed here:</p>
       <ul>
-        <li>Biriyani</li>
-        <li>Chicken Curry</li>
-        <li>Paneer Butter Masala</li>
-        <li>Chole Bhature</li>
-        <li>Idli Sambhar</li>
+        {console.log(menuItems)}
+        {menuItems?.length > 0 ? (
+          menuItems.map((menuCard, index) => (
+            <li key={index}>{menuCard.card.info.name}</li>
+          ))
+        ) : (
+          <li>No menu items available.</li>
+        )}
       </ul>
     </div>
   );

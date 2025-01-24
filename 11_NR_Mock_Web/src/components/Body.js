@@ -3,6 +3,7 @@ import SearchBox from "./SearchBox.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import resturantList from "../utils/mockData.js";
+import { Link } from "react-router";
 
 const Body = () => {
   const [listToUpdate, setListToUpdate] = useState([]); // this is to update the list of restaurants
@@ -45,7 +46,9 @@ const Body = () => {
           />
           <div className="res-container">
             {filteredResturant.map((i) => (
-              <Card passData={i.info} key={i.info.id} />
+              <Link key={i.info.id} to={"/resturants/" + i.info.id}>
+                <Card passData={i.info} />
+              </Link>
             ))}
           </div>
         </div>
