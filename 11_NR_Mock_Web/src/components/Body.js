@@ -10,8 +10,15 @@ const Body = () => {
   const [error, setError] = useState(false); // this is to handle the error state
   const [filteredResturant, setFilteredResturant] = useState([]); // this is to fix search bug if do 2ndor 3rd or more than that
   useEffect(() => {
-    fetchData();
+    const timer = setTimeout(() => {
+      console.log("bad things print");
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+      console.log("it unmounted");
+    };
   }, []);
+  //    fetchData();
 
   const fetchData = async () => {
     try {

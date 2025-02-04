@@ -2,6 +2,7 @@ import React from "react";
 
 class UserClass extends React.Component {
   constructor(props) {
+    console.log("child constructor called");
     super(props);
     this.state = {
       count: 0,
@@ -11,14 +12,34 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
+    console.log("child component did mount is called");
     const gitApiData = await fetch("https://api.github.com/users/sohomz");
+    console.log("child component API is called");
     const convertedData = await gitApiData.json();
     this.setState({
       data: convertedData,
     });
+    this.timer = setInterval(() => {
+      console.log("printing bad things");
+    }, 1000);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.count != prevState.count) {
+      this.componentDidMount();
+    }
+    console.log("child Component did update called");
+  }
+
+  componentWillUnmount() {
+    console.log(
+      "Child componentWillUnmount if going toother page that dont have it"
+    );
+    clearInterval(this.timer);
   }
 
   render() {
+    console.log("child render called");
     return (
       <div className="user-card">
         <h1>Count: {this.state.count}</h1>
