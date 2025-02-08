@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
 import Shimmer from "../components/Shimmer";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const ResturantMenu = () => {
-  const [restaurantData, setRestaurantData] = useState(null);
   const { resId } = useParams();
-  console.log(resId);
-
-  useEffect(() => {
-    fetchMenuData();
-  }, []);
-
-  const fetchMenuData = async () => {
-    try {
-      const response = await fetch(
-        `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.5743545&lng=88.3628734&restaurantId=${resId}`
-      );
-      const jsonData = await response.json();
-      setRestaurantData(jsonData.data);
-    } catch (error) {
-      console.error("Error fetching menu data:", error);
-    }
-  };
+  const restaurantData = useRestaurantMenu(resId);
 
   const getCardData = (index) => restaurantData?.cards?.[index]?.card?.card;
   const restaurantInfo = getCardData(0)?.text;
@@ -50,7 +33,7 @@ const ResturantMenu = () => {
         Delivery Time: {minDeliveryTime} - {maxDeliveryTime} mins
       </h1>
       <p>Menu items will be displayed here:</p>
-      <ul>
+      <ol>
         {console.log(menuItems)}
         {menuItems?.length > 0 ? (
           menuItems.map((menuCard, index) => (
@@ -59,7 +42,7 @@ const ResturantMenu = () => {
         ) : (
           <li>No menu items available.</li>
         )}
-      </ul>
+      </ol>
     </div>
   );
 };

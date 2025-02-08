@@ -2,7 +2,6 @@ import Card from "./Card.js";
 import SearchBox from "./SearchBox.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
-import resturantList from "../utils/mockData.js";
 import { Link } from "react-router";
 
 const Body = () => {
