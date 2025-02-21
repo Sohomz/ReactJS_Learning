@@ -69,7 +69,6 @@ const SearchBox = ({
                   const cuisineSearch = cuisineString
                     .toLowerCase()
                     .includes(searchText.trim().toLowerCase());
-                  //console.log(cuisineSearch);
                   return resName || cuisineSearch;
                 });
                 if (filteredSearchValue.length === 0) {
