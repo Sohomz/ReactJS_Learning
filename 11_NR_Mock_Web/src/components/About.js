@@ -14,21 +14,21 @@ import React from "react";
 
 class About extends React.Component {
   constructor(props) {
-    console.log("Parent constructor called");
+    //console.log("Parent constructor called");
     super(props);
     this.props = props;
   }
 
   async componentDidMount() {
-    console.log("Parent componentDidMount called");
+    //console.log("Parent componentDidMount called");
   }
 
   componentDidUpdate() {
-    console.log("Parent componentDidUpdate called");
+    //console.log("Parent componentDidUpdate called");
   }
 
   render() {
-    console.log("Parent render called");
+    //console.log("Parent render called");
     return (
       <div>
         <h1>This is About page</h1>

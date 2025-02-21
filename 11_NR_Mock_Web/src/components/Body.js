@@ -3,21 +3,16 @@ import SearchBox from "./SearchBox.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
   const [listToUpdate, setListToUpdate] = useState([]); // this is to update the list of restaurants
   const [error, setError] = useState(false); // this is to handle the error state
-  const [filteredResturant, setFilteredResturant] = useState([]); // this is to fix search bug if do 2ndor 3rd or more than that
+  const [filteredResturant, setFilteredResturant] = useState([]); // this is to fix search bug if do 2nd or 3rd or more than that
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log("bad things print");
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-      console.log("it unmounted");
-    };
+    fetchData();
   }, []);
-  //    fetchData();
 
   const fetchData = async () => {
     try {
@@ -35,6 +30,13 @@ const Body = () => {
       console.log(error);
     }
   };
+
+  const onlineOfflineStatus = useOnlineStatus();
+  console.log("Online status in Body component:", onlineOfflineStatus);
+
+  if (!onlineOfflineStatus) {
+    return <h1>Hey, you are offline</h1>;
+  }
 
   return (
     <div>

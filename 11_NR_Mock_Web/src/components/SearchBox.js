@@ -69,7 +69,7 @@ const SearchBox = ({
                   const cuisineSearch = cuisineString
                     .toLowerCase()
                     .includes(searchText.trim().toLowerCase());
-                  console.log(cuisineSearch);
+                  //console.log(cuisineSearch);
                   return resName || cuisineSearch;
                 });
                 if (filteredSearchValue.length === 0) {
@@ -80,7 +80,7 @@ const SearchBox = ({
               } catch (e) {
                 setError(true);
                 setShowPopup(true);
-                console.log(e);
+                //console.log(e);
 
                 setTimeout(() => {
                   setShowPopup(false);

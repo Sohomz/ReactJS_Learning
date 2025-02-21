@@ -34,7 +34,6 @@ const ResturantMenu = () => {
       </h1>
       <p>Menu items will be displayed here:</p>
       <ol>
-        {console.log(menuItems)}
         {menuItems?.length > 0 ? (
           menuItems.map((menuCard, index) => (
             <li key={index}>{menuCard.card.info.name}</li>
