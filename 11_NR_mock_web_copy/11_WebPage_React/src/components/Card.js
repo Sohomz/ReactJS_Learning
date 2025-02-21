@@ -1,5 +1,4 @@
 import images from "../utils/contants.js";
-import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
 const Card = (props) => {
   const {
     key,
