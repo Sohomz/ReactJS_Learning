@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 function useConverterFetch(amnt, fromCur, toCur) {
   const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchConverterURL();
+  }, [amnt, fromCur, toCur]);
 
   const fetchConverterURL = async () => {
     if (fromCur === toCur) {
@@ -10,17 +14,15 @@ function useConverterFetch(amnt, fromCur, toCur) {
     }
 
     try {
-      const res = await fetch(`https://api.frankfurter.app/latest?amount=${amnt}&from=${fromCur}&to=${toCur}`);
+      const res = await fetch(
+        `https://api.frankfurter.app/latest?amount=${amnt}&from=${fromCur}&to=${toCur}`
+      );
       const data = await res.json();
-      setData(Math.floor((data.rates[toCur])*1000)/1000);
+      setData(Math.floor(data.rates[toCur] * 1000) / 1000);
     } catch (err) {
       console.error("Error fetching conversion data:", err);
     }
   };
-
-  useEffect(() => {
-    fetchConverterURL();
-  }, [amnt, fromCur, toCur]);
 
   return { data };
 }
