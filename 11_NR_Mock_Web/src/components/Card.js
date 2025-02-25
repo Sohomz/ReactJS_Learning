@@ -135,10 +135,12 @@ const Card = (props) => {
 //Higher order component
 export const withOnlineLabel = (Card) => {
   return (props) => {
-    <div>
-      <h1>Online</h1>
-      <Card {...props} />
-    </div>;
+    return (
+      <div>
+        <h5 className="absolute bg-green-700 text-white">Online</h5>
+        <Card {...props} />
+      </div>
+    );
   };
 };
 
