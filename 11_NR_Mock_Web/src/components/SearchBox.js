@@ -13,7 +13,7 @@ const SearchBox = ({
   const [error, setError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   return (
-    <div class="fixed top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 z-40 flex w-2/5">
+    <div class="fixed top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 z-40 flex w-2/5">
       <form className="max-w-screen-md mx-auto">
         <label
           htmlFor="default-search"

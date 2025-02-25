@@ -16,6 +16,10 @@ const ResturantMenu = () => {
     restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[8]
       ?.card?.card?.itemCards;
 
+  console.log(
+    restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+  );
+
   if (!restaurantData) {
     return <Shimmer />;
   }
