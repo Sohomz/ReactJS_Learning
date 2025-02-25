@@ -4,8 +4,12 @@ import "./index.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import { createBrowserRouter } from "react-dom";
-import { Outlet, RouterProvider } from "react-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import ResturantMenu from "./components/ResturantMenu";
@@ -20,43 +24,17 @@ const AppLayout = () => {
   );
 };
 
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppLayout />,
-    children: [
-      {
-        path: "/",
-        element: (
-          <div className="body-wrapper">
-            <Body />
-          </div>
-        ),
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/About",
-        element: (
-          <div className="body-wrapper">
-            <About />
-          </div>
-        ),
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/resturants/:resId",
-        element: (
-          <div className="body-wrapper ml-10">
-            <ResturantMenu />
-          </div>
-        ),
-        errorElement: <ErrorPage />,
-      },
-    ],
-    errorElement: <ErrorPage />,
-  },
-]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<AppLayout />);
-root.render(<RouterProvider router={appRouter} />);
+
+root.render(
+  <Router>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route path="/" element={<Body />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/resturants/:resId" element={<ResturantMenu />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
+  </Router>
+);

@@ -1,11 +1,11 @@
 {
   "name": "11_nr_mock_web",
   "version": "1.0.0",
-  "description": "this isto create a mock web app using demo structure",
-  "main": "index.js",
+  "description": "this is to create a mock web app using demo structure",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html && parcel watch index.html"
+    "start": "cross-env TEMP=G:\\ReactJs_Course\\ReactJS_Learning\\11_NR_Mock_Web\\.tmp TMPDIR=G:\\ReactJs_Course\\ReactJS_Learning\\11_NR_Mock_Web\\.tmp parcel index.html && parcel watch index.html",
+    "build": "cross-env TEMP=G:\\ReactJs_Course\\ReactJS_Learning\\11_NR_Mock_Web\\.tmp TMPDIR=G:\\ReactJs_Course\\ReactJS_Learning\\11_NR_Mock_Web\\.tmp parcel build index.html"
   },
   "keywords": [
     "mock",
@@ -19,11 +19,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^5.3.4",
-    "react-router-dom": "^5.3.4",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "parcel": "^2.13.3",
     "postcss": "^8.4.49",
     "process": "^0.11.10",

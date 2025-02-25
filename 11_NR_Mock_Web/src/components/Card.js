@@ -1,5 +1,5 @@
 import images from "../utils/contants.js";
-import { Link } from "react-router-dom/cjs/react-router-dom.min.js";
+import { Link } from "react-router-dom";
 const Card = (props) => {
   const {
     key,
@@ -8,6 +8,7 @@ const Card = (props) => {
     cloudinaryImageId,
     costForTwo,
     avgRatingString,
+    isOpen,
   } = props.passData;
 
   const { deliveryTime } = props.passData.sla;
@@ -16,21 +17,27 @@ const Card = (props) => {
   const halfStar = Number(avgRatingString) - Number(fullStar) >= 0.5 ? 1 : 0;
   const nullStar = images.TOTAL_STARS - (fullStar + halfStar);
 
+  console.log(isOpen);
+
   return (
     <Link to={`/resturants/${props.passData.id}`}>
-      <div className="card-items w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-gray-300">
+      <div className="card-items mt-10 w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:border-gray-300">
         <img
           className="p-6 rounded-t-lg h-64 w-full"
           src={`${images.FOODCARD_IMG}${cloudinaryImageId}`}
           alt="food image"
         />
         <div className="px-5 pb-5">
-          <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {name}
+          <p className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
+            {name.split(" ").length < 4
+              ? name.split(" ").join(" ")
+              : name.split(" ").slice(0, 4).join(" ")}
           </p>
 
           <h5 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
-            {cuisines.join(", ")}
+            {cuisines.length < 5
+              ? cuisines.join(", ")
+              : cuisines.slice(0, 5).join(", ")}
           </h5>
 
           <div className="flex items-center mt-2.5 mb-5">
@@ -115,13 +122,24 @@ const Card = (props) => {
             <span className="text-2xl font-bold text-gray-900 dark:text-white">
               {costForTwo}
             </span>
-            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
-            Add to cart
+            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
     </Link>
   );
+};
+
+//Higher order component
+export const withOnlineLabel = (Card) => {
+  return (props) => {
+    <div>
+      <h1>Online</h1>
+      <Card {...props} />
+    </div>;
+  };
 };
 
 export default Card;

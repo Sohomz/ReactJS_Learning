@@ -1,4 +1,5 @@
 import images from "../utils/contants";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (

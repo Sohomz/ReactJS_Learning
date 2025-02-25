@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+import Card, { withOnlineLabel } from "./Card.js";
 import SearchBox from "./SearchBox.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
@@ -8,7 +8,7 @@ const Body = () => {
   const [listToUpdate, setListToUpdate] = useState([]); // this is to update the list of restaurants
   const [error, setError] = useState(false); // this is to handle the error state
   const [filteredResturant, setFilteredResturant] = useState([]); // this is to fix search bug if do 2nd or 3rd or more than that
-
+  const RestaurantCardOnline = withOnlineLabel(Card);
   useEffect(() => {
     console.log("useEffect for fetchData running");
     fetchData();
@@ -34,6 +34,8 @@ const Body = () => {
   };
   const onlineOfflineStatus = useOnlineStatus();
 
+  console.log(listToUpdate);
+
   useEffect(() => {
     console.log("Online status changed:", onlineOfflineStatus);
   }, [onlineOfflineStatus]);
@@ -54,10 +56,14 @@ const Body = () => {
               filteredResturant={filteredResturant}
               setFilteredResturant={setFilteredResturant}
             />
-            <div className="res-container">
-              {filteredResturant.map((i) => (
-                <Card key={i.info.id} passData={i.info} />
-              ))}
+            <div className="flex flex-wrap p-10 justify-evenly items-center mt-48">
+              {filteredResturant.map((i) =>
+                !i.info.isOpen ? (
+                  <Card key={i.info.id} passData={i.info} />
+                ) : (
+                  <RestaurantCardOnline key={i.info.id} passData={i.info} />
+                )
+              )}
             </div>
           </div>
         )}
