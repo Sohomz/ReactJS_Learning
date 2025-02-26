@@ -1,6 +1,7 @@
 import Shimmer from "../components/Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategoryAccordion from "./RestaurantCategoryAccordion";
 
 const ResturantMenu = () => {
   const { resId } = useParams();
@@ -12,39 +13,39 @@ const ResturantMenu = () => {
   const areaName = getCardData(2)?.info?.areaName;
   const minDeliveryTime = getCardData(2)?.info?.sla?.minDeliveryTime;
   const maxDeliveryTime = getCardData(2)?.info?.sla?.maxDeliveryTime;
+
   const menuItems =
     restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[8]
       ?.card?.card?.itemCards;
 
-  console.log(
-    restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-  );
+  const categories =
+    restaurantData?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (category) => {
+        return (
+          category.card?.card?.["@type"] ==
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        );
+      }
+    );
 
   if (!restaurantData) {
     return <Shimmer />;
   }
 
   return (
-    <div>
-      <h1>Restaurant Name: {restaurantInfo}</h1>
-      <h1>
-        Rating: {rating}
-        Cost for two: {costForTwo}
-      </h1>
-      <h1>Outlet: {areaName}</h1>
-      <h1>
-        Delivery Time: {minDeliveryTime} - {maxDeliveryTime} mins
-      </h1>
-      <p>Menu items will be displayed here:</p>
-      <ol>
-        {menuItems?.length > 0 ? (
-          menuItems.map((menuCard, index) => (
-            <li key={index}>{menuCard.card.info.name}</li>
-          ))
-        ) : (
-          <li>No menu items available.</li>
-        )}
-      </ol>
+    <div className="mt-24 mb-20">
+      <h1 className="font-bold my-6 text-2xl text-center">{restaurantInfo}</h1>
+      {/* Category accordian */}
+      <div>
+        {categories.map((cat) => {
+          return (
+            <RestaurantCategoryAccordion
+              data={cat.card?.card}
+              key={cat.card?.card?.categoryId}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
