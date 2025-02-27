@@ -5,7 +5,7 @@ const FilterBox = ({
   setFilteredResturant,
 }) => {
   return (
-    <div class="filter-box fixed top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-1 z-40 flex items-center w-2/5">
+    <div>
       <button
         type="button"
         onClick={() => {

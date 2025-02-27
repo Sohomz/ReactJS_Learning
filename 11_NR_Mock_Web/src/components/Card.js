@@ -136,12 +136,13 @@ const Card = (props) => {
 export const withOnlineLabel = (Card) => {
   return (props) => {
     return (
-      <div>
-        <h5 className="absolute bg-green-700 text-white">Online</h5>
+      <div className="relative inline-block">
+        <h5 className="px-2 bg-green-700 text-white shadow-lg absolute top-8 left-4 rounded-lg">
+          Online
+        </h5>
         <Card {...props} />
       </div>
     );
   };
 };
-
 export default Card;
