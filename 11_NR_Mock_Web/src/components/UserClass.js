@@ -1,4 +1,6 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -41,11 +43,19 @@ class UserClass extends React.Component {
   render() {
     //console.log("child render called");
     return (
-      <div className="user-card">
+      <div>
         <h1>Count: {this.state.count}</h1>
         <h1>Name: {this.state.data.name + " from gitApi"}</h1>
         <h3>Location: {this.state.data.html_url}</h3>
         <h3>Contact: sohomd077@gmail.com</h3>
+        <div className="flex">
+          Logged In user:
+          <UserContext.Consumer>
+            {(userdata) => {
+              return <h3> {userdata.loggedInUser}</h3>;
+            }}
+          </UserContext.Consumer>
+        </div>
         <input
           type="button"
           value="btn"

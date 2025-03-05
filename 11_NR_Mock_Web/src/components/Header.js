@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "../utils/UserContext";
 import images from "../utils/contants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState(false);
+  const userData = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="flex fixed items-center h-20 p-4 mb-10 bg-gray-800 w-full top-0 z-20">
       <img
@@ -15,7 +20,7 @@ const Header = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>Menu</li>
+        <li className="font-bold">Cart ({cartItems.length})</li>
         <li>
           <Link to="/About">About Us</Link>
         </li>
@@ -28,6 +33,7 @@ const Header = () => {
             setLoginBtn(!loginBtn);
           }} // Add the onClick event
         />
+        <li>{userData.loggedInUser}</li>
       </ul>
     </div>
   );

@@ -1,5 +1,8 @@
 import images from "../utils/contants.js";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext.js";
+
 const Card = (props) => {
   const {
     key,
@@ -10,14 +13,14 @@ const Card = (props) => {
     avgRatingString,
     isOpen,
   } = props.passData;
+  const { loggedInUser } = useContext(UserContext);
+  //console.log(loggedInUser);
 
   const { deliveryTime } = props.passData.sla;
   const starsArray = [1, 2, 3, 4, 5];
   const fullStar = Math.floor(avgRatingString);
   const halfStar = Number(avgRatingString) - Number(fullStar) >= 0.5 ? 1 : 0;
   const nullStar = images.TOTAL_STARS - (fullStar + halfStar);
-
-  console.log(isOpen);
 
   return (
     <Link to={`/resturants/${props.passData.id}`}>

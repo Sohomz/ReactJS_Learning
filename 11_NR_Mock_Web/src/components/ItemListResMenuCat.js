@@ -1,6 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 function ItemListResMenuCat({ items }) {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    //dispatch an action
+
+    dispatch(addItem("pizza"));
+  };
   return (
     <div className="border-b-2">
       <div className="flex justify-between">
@@ -14,7 +22,10 @@ function ItemListResMenuCat({ items }) {
           </p>
         </div>
         <div className="relative min-w-max">
-          <button className="p-2 bg-green-700 text-white shadow-lg rounded-sm absolute top-0 right-0 hover:bg-green-900">
+          <button
+            className="p-2 bg-green-700 text-white shadow-lg rounded-sm absolute top-0 right-0 hover:bg-green-900"
+            onClick={handleClick}
+          >
             ADD+
           </button>
           <img
