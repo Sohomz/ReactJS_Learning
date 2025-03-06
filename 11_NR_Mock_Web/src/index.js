@@ -16,6 +16,7 @@ import ResturantMenu from "./components/ResturantMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appstore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -50,6 +51,7 @@ root.render(
       <Route path="/" element={<AppLayout />}>
         <Route path="/" element={<Body />} />
         <Route path="/About" element={<About />} />
+        <Route path="/Cart" element={<Cart />} />
         <Route path="/resturants/:resId" element={<ResturantMenu />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>

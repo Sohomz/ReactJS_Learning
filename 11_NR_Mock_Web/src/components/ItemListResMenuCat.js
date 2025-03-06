@@ -6,8 +6,8 @@ function ItemListResMenuCat({ items }) {
   const dispatch = useDispatch();
   const handleClick = () => {
     //dispatch an action
-
-    dispatch(addItem("pizza"));
+    dispatch(addItem(items));
+    console.log("itemlsit", items.card);
   };
   return (
     <div className="border-b-2">

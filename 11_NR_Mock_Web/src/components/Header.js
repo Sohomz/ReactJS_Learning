@@ -20,7 +20,9 @@ const Header = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li className="font-bold">Cart ({cartItems.length})</li>
+        <li className="font-bold">
+          <Link to="/Cart">Cart ({cartItems.length})</Link>
+        </li>
         <li>
           <Link to="/About">About Us</Link>
         </li>
