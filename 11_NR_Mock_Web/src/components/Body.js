@@ -21,7 +21,7 @@ const Body = () => {
     //console.log("fetchData function called");
     try {
       const fetchedAPI = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.867114&lng=88.3674381&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://swiggy-api-4c740.web.app/swiggy-api.json"
       );
       const jsonConverted = await fetchedAPI.json();
       const dataOfRestuarant =

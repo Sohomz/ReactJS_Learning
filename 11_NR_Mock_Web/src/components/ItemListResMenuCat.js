@@ -18,7 +18,7 @@ function ItemListResMenuCat({ items }) {
             {parseFloat(items.card.info.price / 100).toFixed(2)}
           </span>
           <p className="font-light">
-            {items.card.info.description.replace("NO MSG.", "").trim()}
+            {items.card.info.description?.replace("NO MSG.", "").trim()}
           </p>
         </div>
         <div className="relative min-w-max">
