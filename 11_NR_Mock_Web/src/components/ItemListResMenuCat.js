@@ -13,7 +13,7 @@ function ItemListResMenuCat({ items }) {
     <div className="border-b-2">
       <div className="flex justify-between">
         <div className="w-3/4">
-          <div className="font-semibold">{items.card.info.name}</div>
+          <div className="font-semibold">{items.card.name}</div>
           <span className="font-semibold font-serif">
             {parseFloat(items.card.info.price / 100).toFixed(2)}
           </span>
