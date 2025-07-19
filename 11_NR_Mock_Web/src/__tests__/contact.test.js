@@ -11,7 +11,12 @@ test("should load heading contact us component", () => {
 
 test("should load btn contact us component", () => {
   render(<Contact />); //render it first to JSDOM
-
   const btn = screen.getByRole("button");
   expect(btn).toBeInTheDocument();
+});
+
+test("should load 2 text boxes in contact us component", () => {
+  render(<Contact />); //render it first to JSDOM
+  const textBox = screen.getAllByRole("textbox");
+  expect(textBox.length).toBe(2);
 });

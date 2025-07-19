@@ -21,8 +21,6 @@ const Contact = () => {
           Submit
         </button>
       </div>
-
-      {console.log("gg")}
     </div>
   );
 };
