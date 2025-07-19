@@ -26,7 +26,9 @@ const Header = () => {
         <li>
           <Link to="/About">About Us</Link>
         </li>
-        <li>Contact</li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
         <input
           type="button"
           value={loginBtn ? "Log out" : "Log in"} // Change the value of the button
