@@ -1,6 +1,6 @@
 const Shimmer = () => {
   const shimmerCardNumber = 12;
-  const shimmerArray = Array.from({ length: shimmerCardNumber });
+  const shimmerArray = new Array(shimmerCardNumber);
   return (
     <div className="flex flex-wrap p-10 justify-evenly items-center mt-48">
       {shimmerArray.map((index) => (

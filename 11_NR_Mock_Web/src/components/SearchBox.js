@@ -17,7 +17,7 @@ const SearchBox = ({
       <div className="flex">
         <input
           type="search"
-          id="default-search"
+          data-testid="default-search"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);

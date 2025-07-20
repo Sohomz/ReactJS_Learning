@@ -1,40 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752986663086" clover="3.2.0">
-  <project timestamp="1752986663087" name="All files">
-    <metrics statements="33" coveredstatements="29" conditionals="8" coveredconditionals="5" methods="14" coveredmethods="10" elements="55" coveredelements="44" complexity="0" loc="33" ncloc="33" packages="2" files="8" classes="8"/>
+<coverage generated="1753017088038" clover="3.2.0">
+  <project timestamp="1753017088038" name="All files">
+    <metrics statements="148" coveredstatements="132" conditionals="38" coveredconditionals="30" methods="54" coveredmethods="49" elements="240" coveredelements="211" complexity="0" loc="148" ncloc="148" packages="2" files="19" classes="19"/>
     <package name="components">
-      <metrics statements="25" coveredstatements="24" conditionals="8" coveredconditionals="5" methods="11" coveredmethods="10"/>
+      <metrics statements="121" coveredstatements="108" conditionals="38" coveredconditionals="30" methods="45" coveredmethods="42"/>
+      <file name="Body.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Body.js">
+        <metrics statements="23" coveredstatements="20" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="5"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="38" count="13" type="stmt"/>
+        <line num="42" count="13" type="stmt"/>
+        <line num="45" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="13" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="72" count="47" type="cond" truecount="1" falsecount="1"/>
+      </file>
       <file name="Card.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Card.js">
-        <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="5"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="50" count="8" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="102" count="2" type="stmt"/>
-        <line num="139" count="1" type="stmt"/>
-        <line num="140" count="1" type="stmt"/>
-        <line num="141" count="1" type="stmt"/>
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="15" count="49" type="stmt"/>
+        <line num="16" count="49" type="stmt"/>
+        <line num="19" count="49" type="stmt"/>
+        <line num="20" count="49" type="stmt"/>
+        <line num="21" count="49" type="stmt"/>
+        <line num="22" count="49" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="49" type="stmt"/>
+        <line num="25" count="49" type="stmt"/>
+        <line num="50" count="196" type="stmt"/>
+        <line num="65" count="14" type="stmt"/>
+        <line num="102" count="35" type="stmt"/>
+        <line num="139" count="3" type="stmt"/>
+        <line num="140" count="14" type="stmt"/>
+        <line num="141" count="48" type="stmt"/>
+      </file>
+      <file name="Cart.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Cart.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
       </file>
       <file name="Contact.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Contact.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
       </file>
+      <file name="FilterBox.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/FilterBox.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
       <file name="Header.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Header.js">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
+      </file>
+      <file name="ItemListResMenuCat.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/ItemListResMenuCat.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+      </file>
+      <file name="Popup.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Popup.js">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+      </file>
+      <file name="RestaurantCategoryAccordion.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/RestaurantCategoryAccordion.js">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="22" count="20" type="stmt"/>
+      </file>
+      <file name="ResturantMenu.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/ResturantMenu.js">
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="7" coveredmethods="7"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="24" count="20" type="stmt"/>
+        <line num="31" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="SearchBox.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/SearchBox.js">
+        <metrics statements="31" coveredstatements="22" conditionals="8" coveredconditionals="5" methods="6" coveredmethods="5"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="33" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="65" count="7" type="stmt"/>
+        <line num="66" count="7" type="stmt"/>
+        <line num="69" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+      </file>
+      <file name="Shimmer.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Shimmer.js">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
       </file>
       <file name="Sum.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/components/Sum.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -43,26 +166,51 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="8" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="27" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7"/>
       <file name="UserContext.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/UserContext.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
       </file>
       <file name="appStore.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/appStore.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="cartSlice.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/cartSlice.js">
-        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
       </file>
       <file name="contants.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/contants.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+      </file>
+      <file name="useOnlineStatus.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/useOnlineStatus.js">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="15" count="13" type="stmt"/>
+      </file>
+      <file name="useRestaurantMenu.js" path="/media/sohom/New Volume/ReactJs_Course/ReactJS_Learning/11_NR_Mock_Web/src/utils/useRestaurantMenu.js">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
       </file>
     </package>
   </project>
